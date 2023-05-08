@@ -1,10 +1,10 @@
-package com.example.jsd2303springmvc;
+package com.example.mybatisannotation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Jsd2303SpringmvcApplicationTests {
+class MybatisannotationApplicationTests {
 
     @Test
     void contextLoads() {
