@@ -1,35 +1,19 @@
-package com.example.mybatisannotation;
+package com.example.mybatisxml;
 
-import com.example.mybatisannotation.mapper.CommentMapper;
-import com.example.mybatisannotation.mapper.UserMapper;
-import com.example.mybatisannotation.mapper.WeiboMapper;
-import com.example.mybatisannotation.pojo.entity.User;
-import com.example.mybatisannotation.pojo.entity.Weibo;
-import com.example.mybatisannotation.pojo.vo.WeiboVO;
-import org.apache.ibatis.session.SqlSession;
+import com.example.mybatisxml.mapper.CommentMapper;
+import com.example.mybatisxml.mapper.UserMapper;
+import com.example.mybatisxml.mapper.WeiboMapper;
+import com.example.mybatisxml.pojo.entity.User;
+import com.example.mybatisxml.pojo.entity.Weibo;
+import com.example.mybatisxml.pojo.vo.WeiboVO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.sql.Connection;
 import java.util.Date;
 
 @SpringBootTest
-class MybatisannotationApplicationTests {
-
-    /**
-     * 测试数据库连接
-     */
-    // 自动装配
-    @Autowired
-    private SqlSession sqlSession;
-
-    @Test
-    void contextLoads() {
-        // 获取数据库连接对象
-        Connection connection = sqlSession.getConnection();
-        System.out.println(connection);
-    }
+class MybatisxmlApplicationTests {
 
     /**
      * 测试向数据库中插入一条数据的方法是否可行
@@ -68,12 +52,10 @@ class MybatisannotationApplicationTests {
     @Test
     void testWeiboInsert() {
         Weibo weibo = new Weibo();
-        // weibo.setContent("我结婚了");
-        // weibo.setContent("我也结婚了");
-        /*weibo.setContent("寒蝉凄切，对长亭晚，骤雨初歇。都门帐饮无序，留恋处，兰舟催发。执手相看泪眼，竟无语凝噎。" +
+        /*"寒蝉凄切，对长亭晚，骤雨初歇。都门帐饮无序，留恋处，兰舟催发。执手相看泪眼，竟无语凝噎。" +
                 "念去去，千里烟波，暮霭沉沉楚天阔。多情自古伤离别，更那堪，冷落清秋节！" +
                 "今宵酒醒何处？杨柳岸，晓风残月。此去经年，应是良辰好景虚设。" +
-                "便纵有千种风情，更与何人说。");*/
+                "便纵有千种风情，更与何人说。"*/
         weibo.setContent("十年生死两茫茫，不思量，自难忘。千里孤坟，无处话凄凉。纵使相逢应不识，尘满面，鬓如霜。" +
                 "夜来幽梦忽还乡，小轩窗，正梳妆。相顾无言，惟有泪千行。料得年年肠断处，明月夜，短松冈。");
         weibo.setCreated(new Date());
@@ -97,8 +79,8 @@ class MybatisannotationApplicationTests {
     void testWeiboUpdateById() {
         Weibo weibo = new Weibo();
         weibo.setId(3);
-        /*weibo.setContent("十年生死两茫茫，不思量，自难忘。千里孤坟，无处话凄凉。纵使相逢应不识，尘满面，鬓如霜。" +
-                "夜来幽梦忽还乡，小轩窗，正梳妆。相顾无言，惟有泪千行。料得年年肠断处，明月夜，短松冈。");*/
+        /*"十年生死两茫茫，不思量，自难忘。千里孤坟，无处话凄凉。纵使相逢应不识，尘满面，鬓如霜。" +
+                "夜来幽梦忽还乡，小轩窗，正梳妆。相顾无言，惟有泪千行。料得年年肠断处，明月夜，短松冈。"*/
         weibo.setContent("寒蝉凄切，对长亭晚，骤雨初歇。都门帐饮无序，留恋处，兰舟催发。执手相看泪眼，竟无语凝噎。" +
                 "念去去，千里烟波，暮霭沉沉楚天阔。多情自古伤离别，更那堪，冷落清秋节！" +
                 "今宵酒醒何处？杨柳岸，晓风残月。此去经年，应是良辰好景虚设。" +
@@ -150,4 +132,5 @@ class MybatisannotationApplicationTests {
     void testUpdateComment() {
         System.out.println(commentMapper.updateById("十年生死两茫茫，不思量，自难忘", 1));
     }
+
 }

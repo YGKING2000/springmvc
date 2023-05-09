@@ -1,7 +1,7 @@
-package com.example.mybatisannotation.mapper;
+package com.example.mybatisxml.mapper;
 
-import com.example.mybatisannotation.pojo.entity.Weibo;
-import com.example.mybatisannotation.pojo.vo.WeiboVO;
+import com.example.mybatisxml.pojo.entity.Weibo;
+import com.example.mybatisxml.pojo.vo.WeiboVO;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author YGKING  e-mail:hrd18960706057@163.com
  * @version 1.0
- * @description
+ * @description Order映射接口
  * @date 2023/05/08 19:10
  */
 @Mapper

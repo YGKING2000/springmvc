@@ -1,36 +1,34 @@
-package com.example.mybatisannotation.pojo;
+package com.example.mybatisannotation.pojo.vo;
 
 import java.util.Date;
 
 /**
  * @author YGKING e-mail:hrd18960706057@163.com
  * @version 1.0
- * @description
- * @className Weibo
- * @date 2023/05/08 15:37
+ * @description 微博VO类
+ * @className WeiboVO
+ * @date 2023/05/08 17:08
  */
-public class Weibo {
-    private Integer id;
+public class WeiboVO {
     private String content;
     private Date created;
     private Integer userId;
 
     @Override
     public String toString() {
-        return "Weibo{" +
-                "id=" + id +
-                ", content='" + content + '\'' +
+        return "WeiboVO{" +
+                "content='" + content + '\'' +
                 ", created=" + created +
                 ", userId=" + userId +
                 '}';
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getContent() {
@@ -47,13 +45,5 @@ public class Weibo {
 
     public void setCreated(Date created) {
         this.created = created;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
     }
 }

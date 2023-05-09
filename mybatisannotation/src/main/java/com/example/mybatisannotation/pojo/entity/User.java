@@ -1,11 +1,11 @@
-package com.example.mybatisannotation.pojo;
+package com.example.mybatisannotation.pojo.entity;
 
 import java.util.Date;
 
 /**
  * @author YGKING e-mail:hrd18960706057@163.com
  * @version 1.0
- * @description
+ * @description 用户实体类
  * @className User
  * @date 2023/05/08 14:27
  */

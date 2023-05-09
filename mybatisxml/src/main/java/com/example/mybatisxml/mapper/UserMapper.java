@@ -1,7 +1,7 @@
-package com.example.mybatisannotation.mapper;
+package com.example.mybatisxml.mapper;
 
-import com.example.mybatisannotation.pojo.entity.User;
-import com.example.mybatisannotation.pojo.vo.UserVO;
+import com.example.mybatisxml.pojo.entity.User;
+import com.example.mybatisxml.pojo.vo.UserVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

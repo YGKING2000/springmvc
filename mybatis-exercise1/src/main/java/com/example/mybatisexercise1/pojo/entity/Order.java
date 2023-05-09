@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * @author YGKING e-mail:hrd18960706057@163.com
  * @version 1.0
- * @description
+ * @description Order实体类
  * @className Order
  * @date 2023/05/08 19:08
  */

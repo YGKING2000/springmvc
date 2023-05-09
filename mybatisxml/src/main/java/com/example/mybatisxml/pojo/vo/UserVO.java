@@ -1,9 +1,9 @@
-package com.example.mybatisannotation.pojo;
+package com.example.mybatisxml.pojo.vo;
 
 /**
  * @author YGKING e-mail:hrd18960706057@163.com
  * @version 1.0
- * @description
+ * @description 用户VO类
  * @className UserVO
  * @date 2023/05/08 17:15
  */
