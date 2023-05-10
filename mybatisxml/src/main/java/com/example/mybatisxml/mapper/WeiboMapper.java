@@ -1,6 +1,8 @@
 package com.example.mybatisxml.mapper;
 
 import com.example.mybatisxml.pojo.entity.Weibo;
+import com.example.mybatisxml.pojo.vo.WeiboDetailVO;
+import com.example.mybatisxml.pojo.vo.WeiboIndexVO;
 import com.example.mybatisxml.pojo.vo.WeiboVO;
 import org.apache.ibatis.annotations.*;
 
@@ -15,21 +17,27 @@ import java.util.List;
 @Mapper
 public interface WeiboMapper {
 
-    @Insert("INSERT INTO weibo (id, content, created, user_id) VALUES (NULL, #{content}, #{created}, #{userId})")
+    // @Insert("INSERT INTO weibo (id, content, created, user_id) VALUES (NULL, #{content}, #{created}, #{userId})")
     boolean insert(Weibo weibo);
 
-    @Delete("DELETE FROM weibo WHERE id = #{id}")
+    // @Delete("DELETE FROM weibo WHERE id = #{id}")
     boolean deleteById(int id);
 
-    @Update("UPDATE weibo set id = #{id}, content = #{content}, created = #{created}, user_Id = #{userId} WHERE id = #{id}")
+    // @Update("UPDATE weibo set id = #{id}, content = #{content}, created = #{created}, user_Id = #{userId} WHERE id = #{id}")
     boolean updateById(Weibo weibo);
 
-    @Select("SELECT * FROM weibo")
+    // @Select("SELECT * FROM weibo")
     List<Weibo> selectAll();
 
-    @Select("SELECT * FROM weibo WHERE id = #{id}")
+    // @Select("SELECT * FROM weibo WHERE id = #{id}")
     Weibo selectById(int id);
 
-    @Select("SELECT content, created, user_id as userId FROM weibo")
+    // @Select("SELECT content, created, user_id as userId FROM weibo")
     List<WeiboVO> selectByColumn();
+
+    int selectWeiboCount();
+
+    List<WeiboIndexVO> select();
+
+    List<WeiboDetailVO> selectWeiboDetail();
 }

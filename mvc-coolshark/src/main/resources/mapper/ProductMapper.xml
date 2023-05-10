@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mvccoolshark.mapper.ProductMapper">
+    <insert id="insert">
+        INSERT INTO product
+        VALUES (#{id}, #{title}, #{price}, #{num})
+    </insert>
+
+    <select id="selectAll" resultType="com.example.mvccoolshark.pojo.entity.Product">
+        SELECT *
+        FROM product
+    </select>
+
+    <delete id="deleteById">
+        DELETE
+        FROM product
+        WHERE id = #{id}
+    </delete>
+
+    <update id="updateById">
+        UPDATE product
+        <set>
+            <if test="title!=null">title=#{title},</if>
+            <if test="price!=null">price=#{price},</if>
+            <if test="num!=null">num=#{num}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

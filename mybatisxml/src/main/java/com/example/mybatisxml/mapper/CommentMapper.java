@@ -1,9 +1,10 @@
 package com.example.mybatisxml.mapper;
 
-import org.apache.ibatis.annotations.Insert;
+import com.example.mybatisxml.pojo.entity.Comment;
+import com.example.mybatisxml.pojo.vo.CommentVO;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 /**
  * @author YGKING  e-mail:hrd18960706057@163.com
@@ -14,9 +15,22 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface CommentMapper {
 
-    @Insert("INSERT INTO comment (content, user_id, weibo_id) VALUES(#{content}, #{user_Id}, #{weibo_Id})")
-    boolean insert(String content, @Param("user_Id") Integer userId, @Param("weibo_Id") Integer weiboId);
+    // @Insert("INSERT INTO comment (content, user_id, weibo_id) VALUES(#{content}, #{userId}, #{weiboId})")
+    boolean insert(String content, Integer userId, Integer weiboId);
 
-    @Update("UPDATE comment SET content = #{content} WHERE id = #{id}")
-    boolean updateById(@Param("content") String content, @Param("id") Integer id);
+    // @Update("UPDATE comment SET content = #{content} WHERE id = #{id}")
+    boolean updateById(String content, Integer id);
+
+    /*动态删除*/
+    // 1.数组形式
+    int deleteByIds1(Integer[] ids);
+    // 2.可变形参
+    int deleteByIds2(Integer ... ids);
+    // 3.集合形式
+    int deleteByIds3(List<Integer> ids);
+
+    /*动态更新*/
+    boolean dynamicUpdate(Comment comment);
+
+    List<CommentVO> selectCommentsByUserId(int id);
 }

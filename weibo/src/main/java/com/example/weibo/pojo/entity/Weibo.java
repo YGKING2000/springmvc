@@ -1,31 +1,19 @@
-package com.example.mybatisxml.pojo.entity;
+package com.example.weibo.pojo.entity;
 
 import java.util.Date;
 
 /**
  * @author YGKING e-mail:hrd18960706057@163.com
  * @version 1.0
- * @description 评论实体类
- * @className comment
- * @date 2023/05/09 10:07
+ * @description 微博实体类
+ * @className Weibo
+ * @date 2023/05/12 11:47
  */
-public class comment {
+public class Weibo {
     private Integer id;
     private String content;
     private Date created;
     private Integer userId;
-    private Integer weiboId;
-
-    @Override
-    public String toString() {
-        return "comment{" +
-                "id=" + id +
-                ", content='" + content + '\'' +
-                ", created=" + created +
-                ", userId=" + userId +
-                ", weiboId=" + weiboId +
-                '}';
-    }
 
     public Integer getId() {
         return id;
@@ -59,11 +47,13 @@ public class comment {
         this.userId = userId;
     }
 
-    public Integer getWeiboId() {
-        return weiboId;
-    }
-
-    public void setWeiboId(Integer weiboId) {
-        this.weiboId = weiboId;
+    @Override
+    public String toString() {
+        return "Weibo{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", created=" + created +
+                ", userId=" + userId +
+                '}';
     }
 }

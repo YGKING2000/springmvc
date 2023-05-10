@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class User {
     private Integer id;
-    private String username;
+    private String username123;
     private Date created;
     private String nickname;
     private String password;
@@ -20,7 +20,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
+                ", username='" + username123 + '\'' +
                 ", password='" + password + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", created=" + created +
@@ -36,11 +36,11 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return username123;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username123 = username;
     }
 
     public String getPassword() {

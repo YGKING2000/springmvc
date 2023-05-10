@@ -4,7 +4,6 @@ import com.example.mybatisxml.pojo.entity.User;
 import com.example.mybatisxml.pojo.vo.UserVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public interface UserMapper {
      * @author YGKING
      * @date 2023/05/08 14:33:31
      */
-    @Insert("INSERT INTO user VALUES(NULL, #{username}, #{password}, #{nickname}, #{created})")
+    // @Insert("INSERT INTO user VALUES(NULL, #{username}, #{password}, #{nickname}, #{created})")
     boolean insert(User user);
 
     /**
@@ -34,6 +33,6 @@ public interface UserMapper {
      * @author YGKING
      * @date 2023/05/08 17:34:07
      */
-    @Select("SELECT username, password FROM user WHERE id < #{id}")
+    // @Select("SELECT username, password FROM user WHERE id < #{id}")
     List<UserVO> selectByIdAndColumn(int id);
 }

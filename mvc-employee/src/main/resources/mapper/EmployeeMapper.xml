@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mvcemployee.mapper.EmployeeMapper">
+    <insert id="insert">
+        INSERT INTO employee
+        VALUES (#{id}, #{title}, #{salary}, #{job});
+    </insert>
+
+    <select id="selectAll" resultType="com.example.mvcemployee.pojo.entity.Employee">
+        SELECT *
+        FROM employee;
+    </select>
+
+    <delete id="deleteById">
+        DELETE
+        FROM employee
+        WHERE id = #{id}
+    </delete>
+
+    <update id="updateById">
+        UPDATE employee
+        <set>
+            <if test="title!=null">title=#{title},</if>
+            <if test="salary!=null">salary=#{salary},</if>
+            <if test="job!=null">job=#{job}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

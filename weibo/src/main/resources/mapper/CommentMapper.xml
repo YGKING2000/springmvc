@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.weibo.mapper.CommentMapper">
+    <select id="selectByWeiboId" resultType="com.example.weibo.pojo.vo.CommentVO">
+        SELECT c.id `id`, c.content `content`, c.created `created`, u.nickname `nickname`
+        FROM comment c
+        JOIN user u ON c.user_id = u.id
+        JOIN weibo w ON c.weibo_id = w.id
+        WHERE w.id = #{id}
+    </select>
+    
+    <insert id="insert">
+        INSERT INTO comment
+        VALUES (NULL, #{content}, #{created}, #{userId}, #{weiboId})
+    </insert>
+
+    <delete id="delete">
+        DELETE
+        FROM comment
+        WHERE id = #{id}
+    </delete>
+</mapper>
