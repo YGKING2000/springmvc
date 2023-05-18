@@ -1,22 +1,16 @@
 package com.example.weibo.controller;
 
 import com.example.weibo.mapper.CommentMapper;
-import com.example.weibo.mapper.WeiboMapper;
-import com.example.weibo.pojo.dto.CommentDeleteDTO;
 import com.example.weibo.pojo.vo.CommentVO;
 import com.example.weibo.pojo.dto.CommentInsertDTO;
 import com.example.weibo.pojo.entity.Comment;
 import com.example.weibo.pojo.vo.UserVO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -30,19 +24,22 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/v1/comment")
+@Api(tags = "03.评论管理模块")
 public class CommentController {
     @Resource
     private CommentMapper commentMapper;
 
-    @Resource
-    private WeiboMapper weiboMapper;
+    /*@Resource
+    private WeiboMapper weiboMapper;*/
 
-    @RequestMapping("/selectByWeiboId")
+    @GetMapping("/selectByWeiboId")
+    @ApiOperation(value = "查询指定微博的评论")
     public List<CommentVO> selectByWeiboId(int id) {
         return commentMapper.selectByWeiboId(id);
     }
 
-    @RequestMapping("/insert")
+    @PostMapping("/insert")
+    @ApiOperation(value = "发表评论功能")
     public int insert(@RequestBody CommentInsertDTO commentInsertDTO, HttpSession session) {
         UserVO userVO = (UserVO) session.getAttribute("user");
         if (userVO != null) {
@@ -56,7 +53,7 @@ public class CommentController {
         return 2;
     }
 
-    @RequestMapping("/delete")
+    /*@RequestMapping("/delete")
     public int delete(@RequestBody CommentDeleteDTO commentDeleteDTO, HttpSession session) {
         UserVO userVO = (UserVO) session.getAttribute("user");
         if (userVO != null) {
@@ -67,5 +64,5 @@ public class CommentController {
             return 2;
         }
         return 3;
-    }
+    }*/
 }

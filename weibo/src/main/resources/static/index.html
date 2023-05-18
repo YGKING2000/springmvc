@@ -48,8 +48,7 @@
                     arr: []
                 },
                 methods: {
-                    logout(aaa) {
-                        console.log(aaa)
+                    logout() {
                         axios.get("/v1/users/logout").then(function (response) {
                             v.isLogin = false;
                         })

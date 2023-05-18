@@ -1,6 +1,7 @@
 package com.example.weibo.pojo.dto;
 
-import java.util.Date;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 /**
  * @author YGKING e-mail:hrd18960706057@163.com
@@ -9,41 +10,12 @@ import java.util.Date;
  * @className User
  * @date 2023/05/12 11:46
  */
+@Data
 public class UserRegDTO {
+    @ApiModelProperty(value = "用户名", required = true, example = "胡歌")
     private String username;
+    @ApiModelProperty(value = "用户密码", required = true, example = "123456")
     private String password;
+    @ApiModelProperty(value = "用户昵称", required = true, example = "李逍遥")
     private String nickname;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    @Override
-    public String toString() {
-        return "UserRegDTO{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", nickname='" + nickname + '\'' +
-                '}';
-    }
 }

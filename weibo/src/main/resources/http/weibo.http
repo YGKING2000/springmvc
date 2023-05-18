@@ -1,0 +1,20 @@
+POST http://localhost:8080/v1/weibo/doInsert
+Content-Type: application/json
+
+{
+  "content": ""
+}
+
+###
+POST http://localhost:8080/v1/weibo/insert
+Content-Type: application/x-www-form-urlencoded
+
+id=99&content="法海你不懂爱"
+
+###
+GET http://localhost:8080/v1/weibo/doSelectById/0
+Accept: application/json
+
+###
+GET http://localhost:8080/v1/weibo/selectById?id=1
+Accept: application/json

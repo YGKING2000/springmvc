@@ -14,7 +14,7 @@
             <div v-for="c in arr">
                 <h4>
                     <span style="color:red">{{c.nickname}}评论道:</span>{{c.content}}
-<!--                    <input type="button" value="删除" style="color: salmon" @click="delete(c.id)"/>-->
+                    <button style="color: salmon" @click="delete(c.id)">删除</button>
                     <span style="float: right">发布于：{{c.created}}</span>
                 </h4>
             </div>
@@ -35,24 +35,9 @@
                     weibo: {},
                     comment: {content: ""},
                     arr: [],
-                    king: {id: "", weiboId: ""}
+                    king: {weiboId: ""}
                 },
                 methods: {
-                    delete(id) {
-                        console.log(id);
-                        v.king.id = id;// 评论id
-                        v.king.weiboId = v.weibo.id;// 当前微博id
-                        axios.post("/v1/comment/delete", v.king).then(function (response) {
-                            if (response.data === 1) {
-                                location.reload();
-                            } else if (response.data === 2) {
-                                alert("您没有权限删除当前微博的评论");
-                            } else {
-                                alert("请先登录");
-                                location.href = "/login.html";
-                            }
-                        });
-                    },
                     insert() {
                         // 查看评论表:id(不需要传递)、content、created(服务器生成)
                         // user_id(当前登录用户的id)、weibo_id(在weibo对象中获取)
@@ -68,6 +53,20 @@
                                 location.href = "/login.html";
                             }
                         })
+                    },
+                    delete(id) {
+                        v.king.id = id;// 评论id
+                        v.king.weiboId = v.weibo.id;// 当前微博id
+                        axios.post("/v1/comment/delete", v.king).then(function (response) {
+                            if (response.data === 1) {
+                                location.reload();
+                            } else if (response.data === 2) {
+                                alert("您没有权限删除当前微博的评论");
+                            } else {
+                                alert("请先登录");
+                                location.href = "/login.html";
+                            }
+                        });
                     }
                 },
                 created: function () {
